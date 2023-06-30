@@ -1,0 +1,34 @@
+<!-- views/home.handlebars -->
+
+{{!-- Extend the main layout --}}
+{{#extends "layouts/main"}}
+
+{{!-- Define the main content section --}}
+{{#content "main"}}
+  <div class="container">
+    <h1>Welcome to the Blog Site!</h1>
+    
+    {{!-- Check if there are existing blog posts --}}
+    {{#if blogPosts.length}}
+      <h2>Latest Blog Posts:</h2>
+      {{!-- Iterate over the blogPosts array and display each post --}}
+      {{#each blogPosts}}
+        <div class="blog-post">
+          <h3>{{title}}</h3>
+          <p>Posted on {{formatDate createdAt}}</p>
+        </div>
+      {{/each}}
+    {{else}}
+      <p>No blog posts found.</p>
+    {{/if}}
+    
+    {{!-- Check if the user is authenticated --}}
+    {{#if isAuthenticated}}
+      <a href="/dashboard">Go to Dashboard</a>
+      <a href="/logout">Logout</a>
+    {{else}}
+      <a href="/signup">Sign Up</a>
+      <a href="/login">Login</a>
+    {{/if}}
+  </div>
+{{/content}}

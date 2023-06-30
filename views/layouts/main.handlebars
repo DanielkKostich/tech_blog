@@ -1,0 +1,44 @@
+<!-- views/layouts/main.handlebars -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Site</title>
+  <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        {{!-- Check if the user is authenticated --}}
+        {{#if isAuthenticated}}
+          <li><a href="/dashboard">Dashboard</a></li>
+          <li><a href="/logout">Logout</a></li>
+        {{else}}
+          <li><a href="/signup">Sign Up</a></li>
+          <li><a href="/login">Login</a></li>
+        {{/if}}
+      </ul>
+    </nav>
+  </header>
+  
+  <main>
+    {{!-- Define the main content section --}}
+    {{#block "main"}}
+      {{!-- Default content if no specific view extends this template --}}
+      <div class="container">
+        <h1>Welcome to the Blog Site!</h1>
+      </div>
+    {{/block}}
+  </main>
+  
+  <footer>
+    <p>Blog Site &copy; 2023</p>
+  </footer>
+  
+  <script src="/scripts/main.js"></script>
+</body>
+</html>
