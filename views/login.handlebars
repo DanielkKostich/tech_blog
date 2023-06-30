@@ -1,32 +1,19 @@
-<!-- views/login.handlebars -->
-
-{{!-- Extend the main layout --}}
-{{#extends "layouts/main"}}
-
-{{!-- Define the main content section --}}
-{{#content "main"}}
-  <div class="container">
-    <h1>Login</h1>
-
-    {{!-- Display error messages if any --}}
-    {{#if errorMessage}}
-      <p class="error-message">{{errorMessage}}</p>
-    {{/if}}
-
-    <form action="/login" method="POST">
-      <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username" required>
-      </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" required>
-      </div>
-      <div class="form-group">
-        <button type="submit">Login</button>
-      </div>
-    </form>
-
-    <p>Don't have an account? <a href="/signup">Sign up</a></p>
+<div class="card">
+  <div class="card-header">
+    <h2>Login</h2>
   </div>
-{{/content}}
+  <form id="login-form" class="card-body">
+    <div>
+      <label for="username-input-login">Username</label>
+      <input type="text" id="username-input-login" />
+    </div>
+    <div>
+      <label for="password-input-login" class="form-label">Password</label>
+      <input type="password" id="password-input-login" />
+    </div>
+    <button type="submit" id="login-btn" class="btn">Login!</button>
+    <a type="button" href="/signup">Sign up instead</a>
+  </form>
+</div>
+
+<script src="/js/login.js"></script>

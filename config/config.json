@@ -1,0 +1,15 @@
+
+{
+    "development": {
+      "username": "root",
+      "password": "Neosho1019",
+      "database": "tech_blog_db",
+      "host": "localhost",
+      "dialect": "mysql",
+      "secrets": {
+        "session": "your_session_secret",
+        "bcryptSaltRounds": 10
+      }
+    }
+  }
+  
